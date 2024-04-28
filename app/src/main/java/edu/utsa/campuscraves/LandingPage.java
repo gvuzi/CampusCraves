@@ -27,6 +27,12 @@ public class LandingPage extends ComponentActivity{
 
         public void setupButtons() {
             button = (Button) findViewById(R.id.Enter);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(LandingPage.this, LoginMenu.class);
+                    startActivity(intent);
+                }
+            });
         }
 }
 
