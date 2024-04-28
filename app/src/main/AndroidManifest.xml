@@ -29,6 +29,12 @@
             android:label="login_menu"
         />
 
+        <activity
+            android:name=".RegisterMenu"
+            android:exported="false"
+            android:label="register_menu"
+            />
+
 
         </application>
 

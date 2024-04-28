@@ -16,12 +16,11 @@ import java.util.Scanner;
 
 public class LandingPage extends ComponentActivity{
     private Button button;
-    AssetManager assets;
+
 
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.landing_page);
-            assets = getAssets();
             setupButtons();
         }
 

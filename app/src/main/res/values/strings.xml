@@ -5,4 +5,8 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="registerNewAccount">Register New Account</string>
+    <string name="firstName">First Name</string>
+    <string name="register">Register</string>
+    <string name="lastName">Last Name</string>
+    <string name="signIn">Have account? Sign in</string>
 </resources>
