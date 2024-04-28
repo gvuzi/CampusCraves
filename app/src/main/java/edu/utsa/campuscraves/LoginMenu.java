@@ -31,10 +31,9 @@ public class LoginMenu extends ComponentActivity {
                 EditText passwordInput = (EditText) findViewById(R.id.loginPassword);
                 int id = authenticate(usernameInput.getText().toString(), passwordInput.getText().toString());
                 if (id > 0) {
-                    Toast.makeText(getBaseContext(), "account is registered", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(LoginMenu.this, ProfileActivity.class);
-                    //intent.putExtra("id", id);
-                    //startActivity(intent);
+                    Intent intent = new Intent(LoginMenu.this, SearchPage.class);
+                    intent.putExtra("id", id);
+                    startActivity(intent);
                 } else {
                     usernameInput.setText("");
                     passwordInput.setText("");

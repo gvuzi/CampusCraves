@@ -9,4 +9,10 @@
     <string name="register">Register</string>
     <string name="lastName">Last Name</string>
     <string name="signIn">Have account? Sign in</string>
+    <string name="searchForYourCraves">Search for \nyour craves</string>
+    <string name="cuisineType">Cuisine Type:</string>
+    <string name="dietaryPref">Dietary Preferences:</string>
+    <string name="ratings">Ratings</string>
+    <string name="serviceType">Service Type:</string>
+    <string name="search">Search</string>
 </resources>

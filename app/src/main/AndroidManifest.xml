@@ -35,6 +35,12 @@
             android:label="register_menu"
             />
 
+        <activity
+            android:name=".SearchPage"
+            android:exported="false"
+            android:label="search_page"
+            />
+
 
         </application>
 
