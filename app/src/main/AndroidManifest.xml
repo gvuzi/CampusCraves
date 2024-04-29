@@ -41,6 +41,12 @@
             android:label="search_page"
             />
 
+        <activity
+            android:name=".PostSearchList"
+            android:exported="false"
+            android:label="post_search_list"
+            />
+
 
         </application>
 

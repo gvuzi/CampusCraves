@@ -11,6 +11,7 @@ import androidx.activity.ComponentActivity;
 import androidx.annotation.Nullable;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -33,6 +34,7 @@ public class LandingPage extends ComponentActivity{
                 }
             });
         }
+
 }
 
 
