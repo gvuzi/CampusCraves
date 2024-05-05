@@ -23,12 +23,10 @@ public class SearchPage extends ComponentActivity {
     private String ratingsInput;
     private String serviceTypeInput;
 
-    //ArrayList<Restaurant> restaurantList = new ArrayList<Restaurant>();
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_page);
         setupDropdown();
-        //setupRestaurants();
         setupButtons();
     }
 
@@ -147,6 +145,14 @@ public class SearchPage extends ComponentActivity {
                 intent.putExtra("dietaryPrefInput", dietaryPrefInput);
                 intent.putExtra("ratingsInput", ratingsInput);
                 intent.putExtra("serviceTypeInput", serviceTypeInput);
+                startActivity(intent);
+            }
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SearchPage.this, EditProfile.class);
                 startActivity(intent);
             }
         });

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/campusCravesLogo"
+        android:layout_width="275dp"
+        android:layout_height="275dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/campustan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editFirstName"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="292dp"
+        android:background="@drawable/input_roundstyle"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/firstName"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:textColor="#555555"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editLastName"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/input_roundstyle"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/lastName"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:textColor="#555555"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
+
+    <EditText
+        android:id="@+id/editUsername"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/input_roundstyle"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:textColor="#555555"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="148dp"
+        android:background="@drawable/input_roundstyle"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/password"
+        android:inputType="text"
+        android:paddingLeft="15dp"
+        android:textColor="#555555"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFirstName" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="204dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/editProfile"
+        android:textColor="#FFA95C"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="165dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/roundstyle_less_radius"
+        android:letterSpacing="0"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="165dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/roundstyle_less_radius_transparent"
+        android:fontFamily="sans-serif-light"
+        android:letterSpacing="0"
+        android:text="@string/logout"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -222,16 +222,16 @@
 
     <TextView
         android:id="@+id/restaurantHours"
-        android:layout_width="108dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="138dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="82dp"
         android:fontFamily="sans-serif"
         android:text="Monday: 10:30AM-7:30PM\nTuesday: 10:30AM-7:30PM\nWednesday: 10:30AM-7:30PM\nThursday: 10:30AM-7:30PM\nFriday: 10:30AM-7:30PM\nSaturday: 10:30AM-4PM\nSunday: Closed"
         android:textColor="#555555"
-        android:textSize="8sp"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/restaurantAddress"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantWebsite" />
+        app:layout_constraintTop_toTopOf="@+id/backgroundRectangle" />
 
     <TextView
         android:id="@+id/restaurantPhoneNum"
@@ -297,6 +297,47 @@
         app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundRectangle" />
+
+    <TextView
+        android:id="@+id/Reviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Reviews"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantAddress" />
+
+    <Button
+        android:id="@+id/addReviewButton"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+
+        android:background="@drawable/roundstyle_less_radius"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+
+        android:letterSpacing="0"
+        android:padding="0dp"
+        android:text="+"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="10dp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintStart_toEndOf="@+id/Reviews"
+        app:layout_constraintTop_toBottomOf="@+id/restaurantAddress" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reviewList"
+        android:layout_width="329dp"
+        android:layout_height="198dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Reviews" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

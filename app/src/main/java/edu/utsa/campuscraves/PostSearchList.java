@@ -2,6 +2,9 @@ package edu.utsa.campuscraves;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.ComponentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +21,7 @@ public class PostSearchList extends ComponentActivity implements RestaurantListI
         setContentView(R.layout.post_search_list);
         RecyclerView recyclerView = findViewById(R.id.restaurantList);
         setupRestaurants();
+        setupButtons();
         filteredList = sortRestaurants();
         RestaurantListViewAdapter adapter = new RestaurantListViewAdapter(this, filteredList, this);
         recyclerView.setAdapter(adapter);
@@ -205,4 +209,17 @@ public class PostSearchList extends ComponentActivity implements RestaurantListI
                 return 0.0;
         }
     }
-}
+
+    private void setupButtons() {
+        ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+    }
+ }

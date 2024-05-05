@@ -53,8 +53,11 @@
             android:label="restaurant_information"
             />
 
+        <activity
+            android:name=".EditProfile"
+            android:exported="false"
+            android:label="edit_profile"
+            />
+
         </application>
-
-
-
 </manifest>

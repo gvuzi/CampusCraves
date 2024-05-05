@@ -2,6 +2,7 @@ package edu.utsa.campuscraves;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,10 @@ public class LoginMenu extends ComponentActivity {
                 int id = authenticate(usernameInput.getText().toString(), passwordInput.getText().toString());
                 if (id > 0) {
                     Intent intent = new Intent(LoginMenu.this, SearchPage.class);
-                    intent.putExtra("id", id);
+                    SharedPreferences sharedPreferences = getSharedPreferences("sharedID", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("userID", id);
+                    editor.apply();
                     startActivity(intent);
                 } else {
                     usernameInput.setText("");
