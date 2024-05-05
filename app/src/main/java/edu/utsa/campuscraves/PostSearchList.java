@@ -11,13 +11,15 @@ import java.util.ArrayList;
 
 public class PostSearchList extends ComponentActivity implements RestaurantListInterface{
     ArrayList<Restaurant> restaurantList = new ArrayList<Restaurant>();
+    ArrayList<Restaurant> filteredList = new ArrayList<Restaurant>();
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_search_list);
         RecyclerView recyclerView = findViewById(R.id.restaurantList);
         setupRestaurants();
-        RestaurantListViewAdapter adapter = new RestaurantListViewAdapter(this, restaurantList, this);
+        filteredList = sortRestaurants();
+        RestaurantListViewAdapter adapter = new RestaurantListViewAdapter(this, filteredList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((this)));
     }
@@ -162,5 +164,45 @@ public class PostSearchList extends ComponentActivity implements RestaurantListI
         intent.putExtra("restaurantImage", restaurantList.get(position).getImage());
 
         startActivity(intent);
+    }
+
+    private ArrayList<Restaurant> sortRestaurants() {
+        String cuisineTypeInput = getIntent().getStringExtra("cuisineTypeInput");
+        String dietaryPrefInput = getIntent().getStringExtra("dietaryPrefInput");
+        String ratingsInput = getIntent().getStringExtra("ratingsInput");
+        String serviceTypeInput = getIntent().getStringExtra("serviceTypeInput");
+        double minimumRating = convertRatingsInput(ratingsInput);
+
+        for (int i = 0; i < restaurantList.size(); i++) {
+            Restaurant restaurant = restaurantList.get(i);
+            boolean cuisineMatch = cuisineTypeInput.equalsIgnoreCase(restaurant.getCuisineType()) || cuisineTypeInput.equals("");
+            boolean dietaryPrefMatch = restaurant.getDietaryPreferences().contains(dietaryPrefInput) || dietaryPrefInput.equals("");
+            boolean ratingsMatch = restaurant.getRating() >= minimumRating || ratingsInput.equals("");
+            boolean serviceTypeMatch = restaurant.getServiceType().contains(serviceTypeInput) || serviceTypeInput.equals("");
+
+
+            if (cuisineMatch && dietaryPrefMatch && ratingsMatch && serviceTypeMatch) {
+                filteredList.add(restaurant);
+            }
+        }
+
+        return filteredList;
+    }
+
+    private double convertRatingsInput(String ratingsInput) {
+        switch (ratingsInput) {
+            case "5 stars":
+                return 5.0;
+            case "4 stars and above":
+                return 4.0;
+            case "3 stars and above":
+                return 3.0;
+            case "2 stars and above":
+                return 2.0;
+            case "1 star and above":
+                return 1.0;
+            default:
+                return 0.0;
+        }
     }
 }

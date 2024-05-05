@@ -132,22 +132,7 @@ public class SearchPage extends ComponentActivity {
         serviceTypeDropdown.setAdapter(serviceTypeAdapter);
     }
 
-    /*public void setupRestaurants() {
 
-        //implementing Panda Express
-        ArrayList<String> dietaryPrefsPandaExpress = new ArrayList<>();
-        dietaryPrefsPandaExpress.add("None");
-
-        ArrayList<String> serviceTypesPandaExpress = new ArrayList<>();
-        serviceTypesPandaExpress.add("Dine-in");
-
-        Restaurant pandaExpress = new Restaurant(1,"Panda Express", 0.0, "Asian",dietaryPrefsPandaExpress, serviceTypesPandaExpress,
-                "One UTSA Circle, San Antonio, TX 78249", "Monday: 10:30AM-7PM\n" + "Tuesday: 10:30AM-7PM\n" + "Wednesday: 10:30AM-7PM\n" +
-                "Thursday: 10:30AM-7PM\n" + "Friday: 10:30AM-2:30PM\n" + "Saturday: Closed\n" + "Sunday:Closed", "210-458-6972", "pandaexpress.com",
-                "https://scontent-dfw5-2.xx.fbcdn.net/v/t39.30808-6/305569458_10167100738410093_3526238491316120511_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=sChDqpWvwFcAb5vJxnt&_nc_ht=scontent-dfw5-2.xx&oh=00_AfB8X8qEVVtnquFvCHXHggU7IR03h7wYRwnUopuE9uAofg&oe=6634B978");
-
-        restaurantList.add(pandaExpress);
-    }*/
 
     public void setupButtons() {
         Button searchButton = (Button) findViewById(R.id.searchButton);
@@ -158,6 +143,10 @@ public class SearchPage extends ComponentActivity {
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(SearchPage.this, PostSearchList.class);
+                intent.putExtra("cuisineTypeInput", cuisineTypeInput);
+                intent.putExtra("dietaryPrefInput", dietaryPrefInput);
+                intent.putExtra("ratingsInput", ratingsInput);
+                intent.putExtra("serviceTypeInput", serviceTypeInput);
                 startActivity(intent);
             }
         });
