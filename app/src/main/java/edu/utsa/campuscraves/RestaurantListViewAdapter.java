@@ -12,19 +12,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RestaurantListViewAdapter extends RecyclerView.Adapter<RestaurantListViewAdapter.MyViewHolder>{
+
+    private RestaurantListInterface restaurantListInterface;
     Context context;
     ArrayList<Restaurant> filteredRestaurants;
 
-    public RestaurantListViewAdapter(Context context, ArrayList<Restaurant> filteredRestaurants) {
+    public RestaurantListViewAdapter(Context context, ArrayList<Restaurant> filteredRestaurants, RestaurantListInterface restaurantListInterface) {
         this.context = context;
         this.filteredRestaurants = filteredRestaurants;
+        this.restaurantListInterface = restaurantListInterface;
     }
     @NonNull
     @Override
     public RestaurantListViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.restaurant_list_layout, parent, false);
-        return new RestaurantListViewAdapter.MyViewHolder(view);
+        return new RestaurantListViewAdapter.MyViewHolder(view, restaurantListInterface);
     }
 
     @Override
@@ -48,7 +51,6 @@ public class RestaurantListViewAdapter extends RecyclerView.Adapter<RestaurantLi
                 serviceTypeString.append(", ");
             }
         }
-
                 holder.restaurantName.setText(filteredRestaurants.get(position).getName());
                 holder.restaurantRating.setText(String.valueOf(filteredRestaurants.get(position).getRating()));
                 holder.restaurantCuisineType.setText(filteredRestaurants.get(position).getCuisineType());
@@ -64,7 +66,7 @@ public class RestaurantListViewAdapter extends RecyclerView.Adapter<RestaurantLi
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView restaurantName, restaurantRating, restaurantCuisineType, restaurantDietaryPref, restaurantServiceType;
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RestaurantListInterface restaurantListInterface) {
             super(itemView);
 
             restaurantName = itemView.findViewById(R.id.restaurantName);
@@ -72,6 +74,19 @@ public class RestaurantListViewAdapter extends RecyclerView.Adapter<RestaurantLi
             restaurantCuisineType = itemView.findViewById(R.id.restaurantCuisineType);
             restaurantDietaryPref = itemView.findViewById(R.id.restaurantDietaryPref);
             restaurantServiceType = itemView.findViewById(R.id.restaurantServiceType);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (restaurantListInterface != null) {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION) {
+                            restaurantListInterface.onRestaurantClick(pos);
+                        }
+                    }
+                }
+            });
 
         }
     }

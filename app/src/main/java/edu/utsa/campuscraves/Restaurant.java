@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Restaurant {
     private int id;
-    private String imageURL;
+    private int image;
     private String name;
     private double rating;
     private String cuisineType;
@@ -17,9 +17,9 @@ public class Restaurant {
     private String website;
 
 
-    public Restaurant(int id, String name, double rating, String cuisineType, ArrayList<String> dietaryPreferences, ArrayList<String> serviceType, String address, String storeHours, String phoneNumber, String website, String imageURL) {
+    public Restaurant(int id, String name, double rating, String cuisineType, ArrayList<String> dietaryPreferences, ArrayList<String> serviceType, String address, String storeHours, String phoneNumber, String website, int image) {
         this.id = id;
-        this.imageURL = imageURL;
+        this.image = image;
         this.name = name;
         this.rating = rating;
         this.cuisineType = cuisineType;
@@ -32,6 +32,8 @@ public class Restaurant {
     }
 
 
+
+
     public int getId() {
         return id;
     }
@@ -40,12 +42,12 @@ public class Restaurant {
         this.id = id;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public int getImage() {
+        return image;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImage(int image ) {
+        this.image = image;
     }
     public String getName() {
         return name;

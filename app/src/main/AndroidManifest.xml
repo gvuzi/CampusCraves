@@ -47,6 +47,11 @@
             android:label="post_search_list"
             />
 
+        <activity
+            android:name=".RestaurantInformation"
+            android:exported="false"
+            android:label="restaurant_information"
+            />
 
         </application>
 

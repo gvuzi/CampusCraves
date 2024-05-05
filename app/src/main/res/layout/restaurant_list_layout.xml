@@ -30,11 +30,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-black"
                 android:text="Restaurant Name"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,53 +42,101 @@
                 android:id="@+id/restaurantRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="1dp"
                 android:fontFamily="sans-serif-black"
                 android:text="4.2"
                 android:textColor="@color/black"
-                android:textSize="16dp"
-                app:layout_constraintStart_toEndOf="@+id/restaurantName"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/starSymbol"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/restaurantCuisineType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
                 android:fontFamily="sans-serif"
                 android:text="Cuisine Type"
                 android:textColor="#555555"
-                android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/cuisineTypeConstant"
                 app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
             <TextView
                 android:id="@+id/restaurantDietaryPref"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif"
                 android:text="Dietary Preferences"
                 android:textColor="#555555"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/restaurantCuisineType"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/dietaryPrefConstant"
                 app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
             <TextView
                 android:id="@+id/restaurantServiceType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="32dp"
                 android:fontFamily="sans-serif"
                 android:text="Service Type"
                 android:textColor="#555555"
-                android:textSize="14dp"
-                app:layout_constraintStart_toEndOf="@+id/restaurantDietaryPref"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/serviceTypeConstant"
                 app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+
+            <TextView
+                android:id="@+id/cuisineTypeConstant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Cuisine Type: "
+                android:textColor="#555555"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+
+            <TextView
+                android:id="@+id/dietaryPrefConstant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Dietary Preferences: "
+                android:textColor="#555555"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+
+            <TextView
+                android:id="@+id/serviceTypeConstant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Service Type: "
+                android:textColor="#555555"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
+
+            <TextView
+                android:id="@+id/starSymbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-black"
+                android:text="★"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/restaurantName"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
