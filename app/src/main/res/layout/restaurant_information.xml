@@ -223,13 +223,13 @@
     <TextView
         android:id="@+id/restaurantHours"
         android:layout_width="138dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="82dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="96dp"
         android:fontFamily="sans-serif"
         android:text="Monday: 10:30AM-7:30PM\nTuesday: 10:30AM-7:30PM\nWednesday: 10:30AM-7:30PM\nThursday: 10:30AM-7:30PM\nFriday: 10:30AM-7:30PM\nSaturday: 10:30AM-4PM\nSunday: Closed"
         android:textColor="#555555"
-        android:textSize="9sp"
+        android:textSize="8sp"
         app:layout_constraintStart_toEndOf="@+id/restaurantAddress"
         app:layout_constraintTop_toTopOf="@+id/backgroundRectangle" />
 
@@ -237,12 +237,12 @@
         android:id="@+id/restaurantPhoneNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="114dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif"
         android:text="Phone Number"
         android:textColor="#555555"
-        android:textSize="8sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/restaurantCuisineType"
         app:layout_constraintTop_toBottomOf="@+id/addToListButton" />
 

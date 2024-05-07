@@ -1,15 +1,23 @@
 package edu.utsa.campuscraves;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.ComponentActivity;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RestaurantInformation extends ComponentActivity {
     public void onCreate(Bundle savedInstanceState) {
@@ -21,11 +29,39 @@ public class RestaurantInformation extends ComponentActivity {
 
     public void setupButtons() {
         Button backButton = (Button) findViewById(R.id.backButton);
+        Button addToList = (Button) findViewById(R.id.addToListButton);
+        ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
+        ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
+
+        addToList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addToList();
+            }
+        });
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
         });
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RestaurantInformation.this, SearchPage.class);
+                startActivity(intent);
+            }
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RestaurantInformation.this, EditProfile.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     public void setRestaurantInfo() {
@@ -86,4 +122,39 @@ public class RestaurantInformation extends ComponentActivity {
         restaurantPhoneNumTextView.setText(restaurantPhoneNum);
         restaurantImageView.setImageResource(restaurantImage);
     }
+
+    private void addToList() {
+        OutputStreamWriter w = null;
+        Scanner scan;
+        String str = null;
+        String[] arr;
+
+        int restaurantID = getIntent().getIntExtra("restaurantID", 0);
+        String restaurantName = getIntent().getStringExtra("restaurantName");
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedID", MODE_PRIVATE);
+        int userID = sharedPreferences.getInt("userID", 0);
+        File f = new File(getFilesDir().getAbsolutePath() + "/list.txt");
+
+        if (!f.exists()) {
+            try {
+                w = new OutputStreamWriter(openFileOutput("list.txt", MODE_PRIVATE));
+                w.write(userID + "," + restaurantID);
+                w.close();
+                Toast.makeText(getBaseContext(), "Successfully added " + restaurantName + " to list", Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            try {
+                w = new OutputStreamWriter(openFileOutput("list.txt", MODE_APPEND));
+                w.append("\n" + userID + "," + restaurantID);
+                w.close();
+                Toast.makeText(getBaseContext(), "Successfully added " + restaurantName + " to list", Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                Toast.makeText(getBaseContext(), "IOException: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }

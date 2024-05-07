@@ -1,6 +1,7 @@
 package edu.utsa.campuscraves;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -156,16 +157,17 @@ public class PostSearchList extends ComponentActivity implements RestaurantListI
     @Override
     public void onRestaurantClick(int position) {
         Intent intent = new Intent(PostSearchList.this, RestaurantInformation.class);
-        intent.putExtra("restaurantName", restaurantList.get(position).getName());
-        intent.putExtra("restaurantRating", restaurantList.get(position).getRating());
-        intent.putExtra("restaurantCuisineType", restaurantList.get(position).getCuisineType());
-        intent.putStringArrayListExtra("restaurantDietaryPref", restaurantList.get(position).getDietaryPreferences());
-        intent.putStringArrayListExtra("restaurantServiceType", restaurantList.get(position).getServiceType());
-        intent.putExtra("restaurantWebsite", restaurantList.get(position).getWebsite());
-        intent.putExtra("restaurantAddress", restaurantList.get(position).getAddress());
-        intent.putExtra("restaurantHours", restaurantList.get(position).getStoreHours());
-        intent.putExtra("restaurantPhoneNum", restaurantList.get(position).getPhoneNumber());
-        intent.putExtra("restaurantImage", restaurantList.get(position).getImage());
+        intent.putExtra("restaurantID", filteredList.get(position).getId());
+        intent.putExtra("restaurantName", filteredList.get(position).getName());
+        intent.putExtra("restaurantRating", filteredList.get(position).getRating());
+        intent.putExtra("restaurantCuisineType", filteredList.get(position).getCuisineType());
+        intent.putStringArrayListExtra("restaurantDietaryPref", filteredList.get(position).getDietaryPreferences());
+        intent.putStringArrayListExtra("restaurantServiceType", filteredList.get(position).getServiceType());
+        intent.putExtra("restaurantWebsite", filteredList.get(position).getWebsite());
+        intent.putExtra("restaurantAddress", filteredList.get(position).getAddress());
+        intent.putExtra("restaurantHours", filteredList.get(position).getStoreHours());
+        intent.putExtra("restaurantPhoneNum", filteredList.get(position).getPhoneNumber());
+        intent.putExtra("restaurantImage", filteredList.get(position).getImage());
 
         startActivity(intent);
     }
@@ -212,11 +214,20 @@ public class PostSearchList extends ComponentActivity implements RestaurantListI
 
     private void setupButtons() {
         ImageButton homeButton = (ImageButton) findViewById(R.id.homeButton);
+        ImageButton profileButton = (ImageButton) findViewById(R.id.profileButton);
 
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PostSearchList.this, EditProfile.class);
+                startActivity(intent);
             }
         });
 
